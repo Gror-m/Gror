@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #f8f8ff;
+  --bg-secondary: #fafafa;
+  --bg-dark: #f3f0ff;
+  --text-primary: #0d0d1a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --accent-purple: #5b21b6;
+  --accent-pink: #ec4899;
+  --accent-blue: #3b82f6;
+  --accent-gold: #d8b4a0;
+  --border-glass: rgba(255, 255, 255, 0.72);
+  --shadow-glow: 0 30px 80px rgba(91, 33, 182, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.24);
+  color: var(--text-primary);
+}
+
+button,
+a {
+  transition: all 0.25s ease;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.35);
+  outline-offset: 4px;
+}
+
+.hero-title {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #c084fc 0%, #d8b4a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.18) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%);
+}
+
+.hero-sphere {
+  animation: floatSphere 8s ease-in-out infinite;
+}
+
+@keyframes floatSphere {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+.sphere-dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.4));
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.28);
+}
+
+.floating-contact {
+  animation: floatPanel 10s ease-in-out infinite;
+}
+
+@keyframes floatPanel {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.nav-item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
