@@ -76,7 +76,7 @@ export function ServicesSection() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section id="services" className="mx-auto max-w-[1440px] px-6 py-[120px] md:px-12 lg:px-16">
+    <section className="mx-auto max-w-[1440px] px-6 py-[120px] md:px-12 lg:px-16">
       <div className="mb-16 text-center">
         <p className="text-sm uppercase tracking-[0.32em] text-violet-600">Testimonials</p>
         <h3 className="mt-4 text-4xl font-black text-slate-950 sm:text-5xl">What People Say</h3>
@@ -135,15 +135,25 @@ export function ServicesSection() {
         </div>
       </div>
 
-      <p className="mx-auto mt-12 max-w-3xl text-center text-3xl font-black text-slate-950 sm:text-4xl">
-        Growth Solutions Built For Modern Real Estate Brands
-      </p>
+      <div id="services" className="mx-auto mt-12 max-w-3xl text-center">
+        <p className="text-sm uppercase tracking-[0.32em] text-violet-600">Services</p>
+        <p className="mt-6 text-3xl font-black text-slate-950 sm:text-4xl">
+          Growth Solutions Built For Modern Real Estate Brands
+        </p>
+      </div>
 
       <div className="mt-16 grid gap-8 lg:grid-cols-3">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <motion.article key={service.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: index * 0.12 }} className="rounded-[32px] border border-white/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(91,33,182,0.06)] backdrop-blur-xl hover:-translate-y-1 hover:shadow-[0_40px_110px_rgba(91,33,182,0.12)] transition duration-300">
+            <motion.article
+              key={service.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: index * 0.12 }}
+              className="rounded-[32px] border border-white/80 bg-white/80 p-8 shadow-[0_24px_80px_rgba(91,33,182,0.06)] backdrop-blur-xl hover:-translate-y-1 hover:shadow-[0_40px_110px_rgba(91,33,182,0.12)] transition duration-300"
+            >
               <div className="mb-6 flex h-14 items-center justify-center gap-2 rounded-3xl bg-violet-50 px-3 text-violet-700 shadow-md shadow-violet-200/30">
                 <Icon className="h-5 w-5" />
                 {service.extraIcons ? (

@@ -6,6 +6,17 @@ import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { FloatingSidebar } from "@/components/FloatingSidebar";
 import GlobeBackground from "@/components/GlobeBackground";
 
+export function GlowingGrorLogo() {
+  return (
+    <div className="relative flex h-[240px] w-[240px] items-center justify-center rounded-full bg-gradient-to-br from-[#f6f2ff]/90 via-[#fbf3ff]/90 to-[#fff8ff]/90 shadow-[0_0_100px_rgba(124,58,237,0.16)]">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#7c3aed]/20 via-[#ec4899]/10 to-transparent blur-3xl" />
+      <div className="relative flex h-[220px] w-[220px] items-center justify-center rounded-full bg-transparent shadow-[0_0_80px_rgba(124,58,237,0.12)] overflow-hidden">
+        <Image src="/logo.png" alt="GROR Marketing" width={210} height={210} className="object-contain h-[95%] w-[95%]" priority />
+      </div>
+    </div>
+  );
+}
+
 export function HeroSection() {
   const socialLinks = [
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/gror_marketing/" },
@@ -20,13 +31,7 @@ export function HeroSection() {
         <div className="mx-auto max-w-[1440px]">
           <div className="flex flex-col items-center gap-14 pt-8">
             <div className="flex flex-col items-center gap-6 text-center">
-              <div className="relative flex h-[240px] w-[240px] items-center justify-center rounded-full bg-gradient-to-br from-[#f6f2ff]/90 via-[#fbf3ff]/90 to-[#fff8ff]/90 shadow-[0_0_100px_rgba(124,58,237,0.16)]">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#7c3aed]/20 via-[#ec4899]/10 to-transparent blur-3xl" />
-                <div className="relative flex h-[220px] w-[220px] items-center justify-center rounded-full bg-transparent shadow-[0_0_80px_rgba(124,58,237,0.12)] overflow-hidden">
-                  <Image src="/logo.png" alt="GROR Marketing" width={210} height={210} className="object-contain h-[95%] w-[95%]" priority />
-                </div>
-              </div>
-
+              <GlowingGrorLogo />
             </div>
 
           <div className="z-10 flex flex-col items-center text-center space-y-8">

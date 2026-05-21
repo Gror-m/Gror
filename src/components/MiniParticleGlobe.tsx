@@ -81,7 +81,7 @@ export default function MiniParticleGlobe({ className }: { className?: string })
       colors[i * 3] = pal[0] / 360;
       colors[i * 3 + 1] = pal[1] / 100;
       colors[i * 3 + 2] = pal[2] / 100;
-      sizes[i] = 7 + Math.random() * 11;
+      sizes[i] = 9 + Math.random() * 13;
       seeds[i] = Math.random();
     }
 

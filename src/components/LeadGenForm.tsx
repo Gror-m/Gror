@@ -21,12 +21,10 @@ export function LeadGenForm() {
 
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState<string>("");
-  const [submittedData, setSubmittedData] = useState<LeadFormValues | null>(null);
 
   async function onSubmit(values: LeadFormValues) {
     setStatus("idle");
     setStatusMessage("");
-    setSubmittedData(null);
 
     try {
       const response = await fetch("/api/leads", {
@@ -45,8 +43,7 @@ export function LeadGenForm() {
       }
 
       setStatus("success");
-      setStatusMessage(responseData?.message || "Thanks! Your request is received. We’ll follow up within 24 hours.");
-      setSubmittedData(values);
+      setStatusMessage("Thank you for your request. We will contact you soon.");
       reset();
     } catch (error) {
       setStatus("error");
@@ -142,44 +139,30 @@ export function LeadGenForm() {
 
         {status !== "idle" && (
           <div
-            className={`rounded-3xl border p-4 text-sm ${
+            className={`mx-auto w-full max-w-2xl rounded-[32px] border p-6 text-sm shadow-[0_24px_80px_rgba(15,23,42,0.12)] ${
               status === "success"
-                ? "border-emerald-400/70 bg-emerald-200/30 text-emerald-900"
+                ? "border-emerald-300/70 bg-emerald-50/90 text-emerald-950"
                 : "border-pink-400/70 bg-pink-200/30 text-pink-900"
             }`}
           >
-            <p className="font-semibold">{statusMessage}</p>
-          </div>
-        )}
-        {submittedData && status === "success" && (
-          <div className="rounded-[28px] border border-slate-200/60 bg-slate-50/90 p-5 text-sm text-slate-700 shadow-[0_20px_80px_rgba(15,23,42,0.08)]">
-            <p className="mb-3 text-base font-semibold text-slate-950">Submission details</p>
-            <div className="space-y-2">
-              <div className="flex flex-col gap-1">
-                <span className="text-slate-500">Name</span>
-                <span className="font-semibold text-slate-900">{submittedData.name}</span>
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center gap-3 text-center">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-700 shadow-sm">
+                  <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+                    <path
+                      d="M20 6L9 17l-5-5"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <p className="font-semibold text-lg">{statusMessage}</p>
               </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-slate-500">Email</span>
-                <span className="font-semibold text-slate-900">{submittedData.email}</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-slate-500">Phone</span>
-                <span className="font-semibold text-slate-900">{submittedData.phone}</span>
-              </div>
-              {submittedData.company && (
-                <div className="flex flex-col gap-1">
-                  <span className="text-slate-500">Company</span>
-                  <span className="font-semibold text-slate-900">{submittedData.company}</span>
-                </div>
-              )}
-              {submittedData.message && (
-                <div className="flex flex-col gap-1">
-                  <span className="text-slate-500">Message</span>
-                  <span className="font-semibold text-slate-900">{submittedData.message}</span>
-                </div>
-              )}
-            </div>
+            ) : (
+              <p className="font-semibold">{statusMessage}</p>
+            )}
           </div>
         )}
       </div>

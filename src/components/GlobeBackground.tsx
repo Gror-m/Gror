@@ -6,6 +6,7 @@ import * as THREE from "three";
 export default function GlobeBackground() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
+  const pointerRef = useRef({ x: 0.5, y: 0.5, active: 0 });
 
   useEffect(() => {
     const container = containerRef.current;
@@ -23,7 +24,7 @@ export default function GlobeBackground() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, 1, 2000);
-    camera.position.set(0, 0, 620);
+    camera.position.set(0, 0, 700);
 
     const ambient = new THREE.AmbientLight(0xffffff, 0.35);
     scene.add(ambient);
@@ -57,26 +58,26 @@ export default function GlobeBackground() {
     }
 
     const rings = [
-      buildRing(240, 0.45, 0.17, 0.15),
-      buildRing(202, 0.12, -0.4, 0.11),
-      buildRing(170, -0.28, 0.72, 0.09),
+      buildRing(280, 0.45, 0.17, 0.15),
+      buildRing(238, 0.12, -0.4, 0.11),
+      buildRing(205, -0.28, 0.72, 0.09),
     ];
     rings.forEach((ring) => globeGroup.add(ring));
 
-    const particleCount = Math.max(3400, Math.floor((container.clientWidth * container.clientHeight) / 8400));
+    const particleCount = Math.max(6800, Math.floor((container.clientWidth * container.clientHeight) / 4200));
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const sizes = new Float32Array(particleCount);
     const seeds = new Float32Array(particleCount);
 
-    const globeRadius = 240;
+    const globeRadius = 300;
 
     for (let i = 0; i < particleCount; i++) {
       const u = Math.random();
       const v = Math.random();
       const theta = 2 * Math.PI * u;
       const phi = Math.acos(2 * v - 1);
-      const r = globeRadius * (0.78 + Math.random() * 0.22);
+      const r = globeRadius * (0.65 + Math.random() * 0.7);
       const x = r * Math.sin(phi) * Math.cos(theta);
       const y = r * Math.sin(phi) * Math.sin(theta);
       const z = r * Math.cos(phi);
@@ -88,7 +89,7 @@ export default function GlobeBackground() {
       colors[i * 3] = paletteItem[0];
       colors[i * 3 + 1] = paletteItem[1];
       colors[i * 3 + 2] = paletteItem[2];
-      sizes[i] = 9 + Math.random() * 10;
+      sizes[i] = 12 + Math.random() * 14;
       seeds[i] = Math.random();
     }
 
@@ -102,6 +103,8 @@ export default function GlobeBackground() {
       uniforms: {
         uTime: { value: 0 },
         uPixelRatio: { value: Math.max(1, window.devicePixelRatio || 1) },
+        uPointer: { value: new THREE.Vector2(0.5, 0.5) },
+        uPointerActive: { value: 0 },
       },
       vertexShader: `
         precision mediump float;
@@ -110,6 +113,8 @@ export default function GlobeBackground() {
         attribute float seed;
         uniform float uTime;
         uniform float uPixelRatio;
+        uniform vec2 uPointer;
+        uniform float uPointerActive;
         varying vec3 vColor;
         varying float vSeed;
         varying float vDepth;
@@ -119,13 +124,22 @@ export default function GlobeBackground() {
           vSeed = seed;
           vec3 pos = position;
           float t = uTime * (0.35 + seed * 0.85);
-          pos.x += sin(t * 1.3 + seed * 6.0) * 10.0;
-          pos.y += cos(t * 1.1 + seed * 4.5) * 8.0;
-          pos.z += sin(t * 0.9 + seed * 5.2) * 7.0;
+          pos.x += sin(t * 1.3 + seed * 6.0) * 12.0;
+          pos.y += cos(t * 1.1 + seed * 4.5) * 10.0;
+          pos.z += sin(t * 0.9 + seed * 5.2) * 8.0;
           vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
           vDepth = -mvPosition.z;
+          vec4 clip = projectionMatrix * mvPosition;
+          vec2 ndc = clip.xy / clip.w;
+          vec2 pointerNDC = uPointer * 2.0 - 1.0;
+          vec2 diff = ndc - pointerNDC;
+          float dist = length(diff);
+          float influence = exp(-dist * 6.0) * uPointerActive;
+          pos.xy += diff * 24.0 * influence * (0.8 + seed * 0.4);
+          mvPosition = modelViewMatrix * vec4(pos, 1.0);
+          vDepth = -mvPosition.z;
           gl_Position = projectionMatrix * mvPosition;
-          gl_PointSize = size * (320.0 / max(1.0, vDepth)) * uPixelRatio;
+          gl_PointSize = size * (340.0 / max(1.0, vDepth)) * uPixelRatio * (1.0 + influence * 0.5);
         }
       `,
       fragmentShader: `
@@ -175,6 +189,19 @@ export default function GlobeBackground() {
       camera.updateProjectionMatrix();
     }
 
+    const pointerMove = (event: PointerEvent) => {
+      const rect = container.getBoundingClientRect();
+      pointerRef.current.x = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+      pointerRef.current.y = Math.min(1, Math.max(0, 1 - (event.clientY - rect.top) / rect.height));
+      pointerRef.current.active = 1;
+    };
+
+    const pointerLeave = () => {
+      pointerRef.current.active = 0;
+    };
+
+    container.addEventListener("pointermove", pointerMove);
+    container.addEventListener("pointerleave", pointerLeave);
     resize();
     window.addEventListener("resize", resize);
 
@@ -182,6 +209,8 @@ export default function GlobeBackground() {
 
     const animate = () => {
       material.uniforms.uTime.value = clock.getElapsedTime();
+      material.uniforms.uPointer.value.set(pointerRef.current.x, pointerRef.current.y);
+      material.uniforms.uPointerActive.value = pointerRef.current.active;
       globeGroup.rotation.y += 0.0009;
       globeGroup.rotation.x += 0.00035;
       renderer.render(scene, camera);
@@ -192,6 +221,8 @@ export default function GlobeBackground() {
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      container.removeEventListener("pointermove", pointerMove);
+      container.removeEventListener("pointerleave", pointerLeave);
       window.removeEventListener("resize", resize);
       geometry.dispose();
       material.dispose();
@@ -200,5 +231,5 @@ export default function GlobeBackground() {
     };
   }, []);
 
-  return <div ref={containerRef} className="fixed inset-0 -z-20 pointer-events-none opacity-100" />;
+  return <div ref={containerRef} className="fixed inset-0 -z-20 opacity-100" />;
 }
