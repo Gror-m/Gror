@@ -84,7 +84,7 @@ export function ParticleTunnel() {
             vec3 attract = dir * (4.6 * influence * poleFactor);
             vec3 target = pos + offset + attract;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(target, 1.0);
-            gl_PointSize = mix(14.0, 30.0, length(pos) / 4.2);
+            gl_PointSize = mix(14.0, 30.0, length(pos) / 3.8);
           }
         `,
         fragmentShader: `

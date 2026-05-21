@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { FloatingSidebar } from "@/components/FloatingSidebar";
-import { ParticleBackground } from "@/components/ParticleBackground";
+import GlobeBackground from "@/components/GlobeBackground";
 
 export function HeroSection() {
   const socialLinks = [
@@ -15,7 +15,7 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative overflow-hidden">
-      <ParticleBackground />
+      <GlobeBackground />
       <div className="relative px-6 py-8 md:px-12 lg:px-16">
         <div className="mx-auto max-w-[1440px]">
           <div className="flex flex-col items-center gap-14 pt-8">
