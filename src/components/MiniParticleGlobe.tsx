@@ -12,7 +12,7 @@ export default function MiniParticleGlobe({ className }: { className?: string })
     if (!container) return;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.max(1, window.devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(2, Math.max(1, window.devicePixelRatio || 1)));
     renderer.setClearColor(0x000000, 0);
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "0";
@@ -38,7 +38,7 @@ export default function MiniParticleGlobe({ className }: { className?: string })
     window.addEventListener("resize", resize);
 
     const area = container.clientWidth * container.clientHeight;
-    const PARTICLE_COUNT = Math.max(1600, Math.floor(area / 8200));
+    const PARTICLE_COUNT = Math.max(2000, Math.floor(area / 7400));
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     const colors = new Float32Array(PARTICLE_COUNT * 3);
@@ -81,7 +81,7 @@ export default function MiniParticleGlobe({ className }: { className?: string })
       colors[i * 3] = pal[0] / 360;
       colors[i * 3 + 1] = pal[1] / 100;
       colors[i * 3 + 2] = pal[2] / 100;
-      sizes[i] = 6 + Math.random() * 10;
+      sizes[i] = 7 + Math.random() * 11;
       seeds[i] = Math.random();
     }
 

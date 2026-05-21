@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, useEffect } from "react";
 import * as THREE from "three";
 
-const PARTICLE_COUNT = 2800;
+const PARTICLE_COUNT = 3400;
 
 function fibonacciSphere(radius: number, count: number) {
   const positions = new Float32Array(count * 3);

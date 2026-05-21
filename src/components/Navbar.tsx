@@ -40,7 +40,7 @@ export function Navbar() {
       <div className="mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href="#home" className="inline-flex items-center gap-3">
           <div className="relative h-14 w-14 overflow-hidden">
-            <Image src="/logo.png" alt="Gror Marketing" fill className="object-contain" priority />
+            <Image src="/logo.png" alt="Gror Marketing" fill sizes="56px" className="object-contain" priority />
           </div>
           <span className="hidden text-sm font-semibold uppercase tracking-[0.22em] text-slate-950 sm:inline-flex">Gror Marketing</span>
         </Link>

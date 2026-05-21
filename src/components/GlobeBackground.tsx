@@ -12,7 +12,7 @@ export default function GlobeBackground() {
     if (!container) return;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.max(1, window.devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(2, Math.max(1, window.devicePixelRatio || 1)));
     renderer.setClearColor(0x000000, 0);
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "0";
@@ -63,7 +63,7 @@ export default function GlobeBackground() {
     ];
     rings.forEach((ring) => globeGroup.add(ring));
 
-    const particleCount = Math.max(2800, Math.floor((container.clientWidth * container.clientHeight) / 9500));
+    const particleCount = Math.max(3400, Math.floor((container.clientWidth * container.clientHeight) / 8400));
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const sizes = new Float32Array(particleCount);
@@ -88,7 +88,7 @@ export default function GlobeBackground() {
       colors[i * 3] = paletteItem[0];
       colors[i * 3 + 1] = paletteItem[1];
       colors[i * 3 + 2] = paletteItem[2];
-      sizes[i] = 8 + Math.random() * 9;
+      sizes[i] = 9 + Math.random() * 10;
       seeds[i] = Math.random();
     }
 
