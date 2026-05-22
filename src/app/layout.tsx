@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description:
     "GROR Marketing builds high-converting digital growth systems for real estate brands with performance marketing, automation, and lead generation.",
   metadataBase: new URL("https://example.com"),
+  icons: {
+    icon: "/icon.jpeg",
+  },
 };
 
 export default function RootLayout({

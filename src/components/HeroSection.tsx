@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, MessageCircle } from "lucide-react";
 import { FloatingSidebar } from "@/components/FloatingSidebar";
 import GlobeBackground from "@/components/GlobeBackground";
 
@@ -22,6 +22,7 @@ export function HeroSection() {
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/gror_marketing/" },
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61587605125285" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/gror-marketing/?viewAsMember=true" },
+    { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919068897893" },
   ];
 
   return (
@@ -42,9 +43,9 @@ export function HeroSection() {
 
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }}>
               <h1 className="text-5xl font-black tracking-[-0.05em] text-slate-950 sm:text-6xl xl:text-7xl">
-                We Generate High-Intent Real Estate Leads
+                We Generate High-Intent Real Estate
                 <br />
-                That Actually Convert
+                <span className="whitespace-nowrap">Leads That Actually Convert</span>
               </h1>
             </motion.div>
 

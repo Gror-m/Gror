@@ -72,7 +72,7 @@ export function LeadGenForm() {
           <span>Name</span>
           <input
             type="text"
-            placeholder="Sahil Verma"
+            placeholder="John Smith"
             className="h-[58px] w-full rounded-[18px] border border-slate-200/25 bg-white/90 px-4 text-sm text-slate-950 outline-none transition duration-300 hover:border-[#8B5CF6]/40 focus:border-[#8B5CF6] focus:ring-4 focus:ring-[#8B5CF6]/15 placeholder:text-slate-400"
             {...register("name", { required: "Name is required" })}
           />
@@ -100,7 +100,7 @@ export function LeadGenForm() {
           <span>Phone</span>
           <input
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder="XXXXXXXXXX"
             className="h-[58px] w-full rounded-[18px] border border-slate-200/25 bg-white/90 px-4 text-sm text-slate-950 outline-none transition duration-300 hover:border-[#8B5CF6]/40 focus:border-[#8B5CF6] focus:ring-4 focus:ring-[#8B5CF6]/15 placeholder:text-slate-400"
             {...register("phone", { required: "Phone number is required" })}
           />

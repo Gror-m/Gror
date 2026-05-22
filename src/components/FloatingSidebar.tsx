@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { PhoneCall, MessageCircle, CalendarDays, Mail } from "lucide-react";
 
 const actions = [
-  { label: "Call Us", icon: PhoneCall, href: "tel:+1234567890", active: true },
-  { label: "WhatsApp", icon: MessageCircle, href: "https://wa.me/1234567890" },
+  { label: "Call Us", icon: PhoneCall, href: "tel:+919068897893", active: true },
+  { label: "WhatsApp", icon: MessageCircle, href: "https://wa.me/919068897893" },
   { label: "Book Call", icon: CalendarDays, href: "#contact" },
   { label: "Email Us", icon: Mail, href: "mailto:info.gror@gmail.com" },
 ];
