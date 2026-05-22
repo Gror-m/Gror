@@ -15,15 +15,9 @@ export function WhyGrorSection() {
         <motion.div initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <p className="text-sm uppercase tracking-[0.32em] text-violet-600">ABOUT GROR</p>
           <h2 className="mt-4 max-w-xl text-4xl font-black leading-tight text-slate-950 sm:text-5xl">We Build Scalable Real Estate Growth Engines</h2>
-          <div className="mt-6 space-y-6 text-base leading-8 text-slate-600">
+          <div className="mt-6 text-[17px] leading-7 italic text-slate-600">
             <p>
-              At GROR Marketing, we combine performance marketing, automation, analytics, and conversion psychology to help real estate businesses generate predictable revenue growth.
-            </p>
-            <p>
-              From premium residential projects to commercial developments, we create high-converting digital ecosystems that drive qualified inquiries, increase bookings, and maximize ROI.
-            </p>
-            <p>
-              We don’t just run ads — we build complete growth systems.
+              At GROR Marketing, we combine performance marketing, automation, analytics, and conversion psychology to help real estate businesses generate predictable revenue growth. From premium residential projects to commercial developments, we create high-converting digital ecosystems that drive qualified inquiries, increase bookings, and maximize ROI. We don’t just run ads — we build complete growth systems.
             </p>
           </div>
         </motion.div>
