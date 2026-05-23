@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -13,16 +13,19 @@ export const metadata: Metadata = {
   description:
     "GROR Marketing builds high-converting digital growth systems for real estate brands with performance marketing, automation, and lead generation.",
   metadataBase: new URL("https://example.com"),
-  themeColor: "#ffffff",
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/icon.jpeg", type: "image/jpeg" },
-      { url: "/icon.jpeg", sizes: "any" },
+      { url: "/icon.png", type: "image/jpeg" },
+      { url: "/icon.png", sizes: "60x60" },
     ],
-    apple: "/icon.jpeg",
-    shortcut: "/icon.jpeg",
+    apple: "/icon.png",
+    shortcut: "/icon.png",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
