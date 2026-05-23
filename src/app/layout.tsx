@@ -13,8 +13,15 @@ export const metadata: Metadata = {
   description:
     "GROR Marketing builds high-converting digital growth systems for real estate brands with performance marketing, automation, and lead generation.",
   metadataBase: new URL("https://example.com"),
+  themeColor: "#ffffff",
+  manifest: "/site.webmanifest",
   icons: {
-    icon: "/icon.jpeg",
+    icon: [
+      { url: "/icon.jpeg", type: "image/jpeg" },
+      { url: "/icon.jpeg", sizes: "any" },
+    ],
+    apple: "/icon.jpeg",
+    shortcut: "/icon.jpeg",
   },
 };
 
