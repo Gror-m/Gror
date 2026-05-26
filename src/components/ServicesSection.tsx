@@ -7,34 +7,38 @@ import { ArrowRight, Sparkles, BarChart3, ShieldCheck, Facebook, Globe, Activity
 
 const services = [
   {
-    title: "Real Estate Lead Generation",
-    description: "Generate high-quality buyer and investor leads through Meta Ads, Google Ads, and advanced funnel targeting strategies.",
-    icon: Facebook,
-    extraIcons: [Globe, Facebook],
-  },
-  {
-    title: "Performance Marketing",
-    description: "ROI-focused paid advertising campaigns optimized for conversions, lower CPL, and maximum ROAS.",
+    title: "Performance Marketing for Real Estate",
+    description: "Generate high-intent property leads using Google Ads, Meta Ads, conversion-focused campaigns, landing pages, and data-driven performance marketing systems.",
     icon: BarChart3,
   },
   {
-    title: "CRM & WhatsApp Automation",
-    description: "Automate follow-ups, lead nurturing, reminders, and sales workflows using smart CRM integrations and WhatsApp automation.",
-    icon: ShieldCheck,
+    title: "Digital Marketing Services",
+    description: "Complete digital marketing solutions for real estate brands including paid ads, funnels, content strategy, and lead nurturing systems.",
+    icon: Globe,
   },
   {
-    title: "Conversion-Focused Landing Pages",
-    description: "High-converting landing pages designed specifically to capture and qualify real estate leads.",
-    icon: MonitorPlay,
+    title: "Social Media Marketing",
+    description: "Grow your real estate brand visibility and engagement through strategic social media marketing campaigns.",
+    icon: Facebook,
   },
   {
-    title: "Branding & Creative Strategy",
-    description: "Premium visual identity, ad creatives, and marketing assets that position your project as a market leader.",
+    title: "Search Engine Optimization (SEO)",
+    description: "Improve Google rankings, organic traffic, and property lead visibility using SEO strategies built for real estate businesses.",
     icon: Sparkles,
   },
   {
-    title: "Analytics & Reporting",
-    description: "Track every click, lead, and conversion with real-time dashboards and actionable growth insights.",
+    title: "Website & Funnel Development",
+    description: "Premium real estate websites and landing funnels optimized for lead conversion and user experience.",
+    icon: MonitorPlay,
+  },
+  {
+    title: "WhatsApp Automation",
+    description: "Automate buyer follow-ups, lead nurturing, and customer engagement through WhatsApp workflows.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "CRM & Lead Automation",
+    description: "Manage and convert leads efficiently using CRM systems, automation workflows, and sales integrations.",
     icon: Activity,
   },
 ];
@@ -76,12 +80,11 @@ export function ServicesSection() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="mx-auto max-w-[1440px] px-6 py-[120px] md:px-12 lg:px-16">
-      <div className="mb-16 text-center">
+    <section className="mx-auto max-w-[1440px] px-6 py-[80px] md:px-12 lg:px-16">
+      <div className="mb-10 text-center">
         <p className="text-sm uppercase tracking-[0.32em] text-violet-600">Testimonials</p>
-        <h3 className="mt-4 text-4xl font-black text-slate-950 sm:text-5xl">What People Say</h3>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-          Trusted by real estate brands scaling with performance marketing and automation.
+        <p className="mt-4 text-3xl font-black text-slate-950 sm:text-4xl">
+          Trusted by modern real estate brands driving scalable growth with GROR Marketing.
         </p>
       </div>
 
@@ -178,7 +181,7 @@ export function ServicesSection() {
 
         .testimonial-track {
           will-change: transform;
-          animation: marqueeLeft 36s linear infinite;
+          animation: marqueeLeft 18s linear infinite;
         }
 
         .testimonial-copy {

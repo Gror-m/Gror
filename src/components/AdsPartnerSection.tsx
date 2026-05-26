@@ -19,7 +19,7 @@ const logoCards = [
 
 export function AdsPartnerSection() {
   return (
-    <section className="relative mx-auto max-w-[1440px] px-6 py-24 md:px-12 lg:px-16">
+    <section className="relative mx-auto max-w-[1440px] px-6 py-16 md:px-12 lg:px-16">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.08),transparent_60%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.06),transparent_70%)]" />
         <MiniParticleGlobe className="absolute inset-0 -z-10 opacity-95" />
@@ -27,9 +27,6 @@ export function AdsPartnerSection() {
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-violet-400">Trusted Advertising Platforms</p>
-        <h2 className="mt-4 text-4xl font-black text-slate-950 sm:text-5xl lg:text-6xl">
-          Powered by Google & Meta Ads
-        </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
           We generate high-intent real estate leads through data-driven advertising systems across Google and Meta platforms.
         </p>

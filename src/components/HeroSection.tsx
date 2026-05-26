@@ -43,18 +43,16 @@ export function HeroSection() {
 
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }}>
               <h1 className="text-5xl font-black tracking-[-0.05em] text-slate-950 sm:text-6xl xl:text-7xl">
-                We Generate High-Intent Real Estate
-                <br />
-                <span className="whitespace-nowrap">Leads That Actually Convert</span>
+                Real Estate Lead Generation & Performance Marketing Agency
               </h1>
             </motion.div>
 
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }} className="max-w-xl text-base font-semibold text-transparent bg-gradient-to-r from-[#7C3AED] via-[#C084FC] to-[#EC4899] bg-clip-text sm:text-lg">
-              Performance Marketing. Automation. Growth Systems.
+              We help builders, developers, and real estate brands generate high-intent property leads using Google Ads, Meta Ads, landing pages, and automation systems.
             </motion.p>
 
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }} className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              GROR Marketing helps real estate builders, developers, and agencies scale faster through data-driven advertising, lead generation funnels, CRM automation, and conversion-focused digital strategies.
+              Scale property lead generation across search and social with proven real estate advertising campaigns, premium landing page experiences, and WhatsApp automation for faster conversion.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }} className="flex flex-col gap-4 sm:flex-row">

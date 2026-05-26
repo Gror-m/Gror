@@ -6,24 +6,20 @@ import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "How quickly can GROR launch a campaign?",
-    answer: "Most campaigns are launched within 3-4 days depending on project requirements, creatives, and integrations.",
+    question: "How do you generate real estate leads?",
+    answer: "We combine Google Ads for real estate, Meta audience targeting, conversion-ready landing pages, and CRM workflows to deliver high-intent property lead generation.",
   },
   {
-    question: "Do you provide Meta and Google Ads management?",
-    answer: "Yes. We manage complete paid advertising campaigns across Meta, Google, YouTube, and retargeting platforms.",
+    question: "Do you run Google Ads for builders?",
+    answer: "Yes. We build Google Ads campaigns tailored for builders that target active homebuyers, builders, and luxury property investors.",
   },
   {
-    question: "Can you integrate our CRM and automation systems?",
-    answer: "Absolutely. We support CRM integrations, WhatsApp automation, lead routing, and custom workflow setups.",
+    question: "How does WhatsApp automation help real estate sales?",
+    answer: "WhatsApp automation speeds up lead follow-up, boosts engagement, and keeps buyer conversations warm so real estate teams convert more leads faster.",
   },
   {
-    question: "Do you work only with real estate businesses?",
-    answer: "Our primary expertise is real estate performance marketing, but we also support premium service-based brands.",
-  },
-  {
-    question: "How do you track campaign performance?",
-    answer: "We provide detailed reporting dashboards with CPL, ROAS, conversion tracking, and lead quality insights.",
+    question: "What is performance marketing for real estate?",
+    answer: "Real estate performance marketing is campaign optimization focused on measurable lead generation, lower CPL, higher ROAS, and predictable property sales growth.",
   },
 ];
 
@@ -34,7 +30,7 @@ export function FaqSection() {
     <section id="faq" className="mx-auto max-w-[1440px] px-6 py-20 md:px-12 lg:px-16">
       <div className="mb-12 text-center">
         <p className="text-sm uppercase tracking-[0.28em] text-[#4B5563]">FAQ</p>
-        <h2 className="mt-4 text-5xl font-black text-[#0D0D1A] sm:text-6xl">Questions we answer before launch.</h2>
+        <h2 className="mt-4 text-3xl font-black text-[#0D0D1A] sm:text-4xl">Questions we answer before launch.</h2>
       </div>
 
       <div className="mx-auto w-full max-w-3xl space-y-4 rounded-[32px] border border-[rgba(15,23,42,0.08)] bg-[rgba(255,255,255,0.28)] p-1 shadow-[0_40px_120px_rgba(15,23,42,0.08)] backdrop-blur-2xl">

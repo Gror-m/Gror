@@ -9,7 +9,7 @@ export function TechStackSection() {
     <section id="technology" className="mx-auto max-w-[1440px] px-6 py-16 md:px-12 lg:px-16">
       <div className="mb-10 text-center">
         <p className="text-sm uppercase tracking-[0.32em] text-violet-600">Technology Stack</p>
-        <h2 className="mt-4 text-4xl font-black text-slate-950 sm:text-5xl">Built on enterprise-grade modern infrastructure.</h2>
+        <h2 className="mt-4 text-3xl font-black text-slate-950 sm:text-4xl">Built on enterprise-grade modern infrastructure.</h2>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {stack.map((item, index) => (

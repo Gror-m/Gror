@@ -15,7 +15,7 @@ export function ProcessSection() {
       <div className="rounded-[40px] border border-white/80 bg-white/80 p-8 shadow-[0_30px_110px_rgba(91,33,182,0.08)] backdrop-blur-xl md:p-12">
         <div className="mb-10">
           <p className="text-sm uppercase tracking-[0.32em] text-violet-600">Our Real Estate Growth Process</p>
-          <h2 className="mt-4 text-4xl font-black text-slate-950 sm:text-5xl">Our Real Estate Growth Process</h2>
+          <h2 className="mt-4 text-3xl font-black text-slate-950 sm:text-4xl">Our Real Estate Growth Process</h2>
         </div>
         <div className="grid gap-6 lg:grid-cols-4">
           {steps.map((step, index) => (
