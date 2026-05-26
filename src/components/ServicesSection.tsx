@@ -5,7 +5,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, BarChart3, ShieldCheck, Facebook, Globe, Activity, MonitorPlay } from "lucide-react";
 
-const services = [
+type Service = {
+  title: string;
+  description: string;
+  icon: any;
+  extraIcons?: any[];
+};
+
+const services: Service[] = [
   {
     title: "Performance Marketing for Real Estate",
     description: "Generate high-intent property leads using Google Ads, Meta Ads, conversion-focused campaigns, landing pages, and data-driven performance marketing systems.",
